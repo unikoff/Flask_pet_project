@@ -1,0 +1,162 @@
+@font-face {
+	font-family: 'robot';
+	src: url(/static/font/FRM325x8.ttf);
+}
+/* Connect a robot font
+   подключили робот шрифт */
+
+.box{
+    background: url(../static/images/anonim.jpg);
+    height: 100hv;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+ul.top_menu{
+    font-family: robot;
+    list-style: none;
+    overflow: hidden;
+}
+
+ul.top_menu li {
+    display: block;
+    float: left;
+    margin: auto 15px;
+}
+
+ul.top_menu li a {
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+}
+
+ul.top_menu li a {
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+}
+
+.form_window {
+    background: #FFCE9E;
+    text-align: center;
+}
+
+::placeholder {
+    font-family: robot;
+}
+
+.form_button {
+    font-family: robot;
+}
+
+.form_button.well {
+    background: #B5E9B4;
+}
+
+.form_button.bad {
+    background: #E9B4B7;
+}
+
+.form-reg{
+    display: grid;
+    text-align: center;
+}
+
+.form-reg p {
+    display: grid;
+    margin: 10px 60px;
+    color: #2D4059;
+
+}
+
+.form-log {
+    display: grid;
+    text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-log p {
+    font-family: robot;
+    display: grid;
+    margin: 10px 60px;
+    color: #2D4059;
+}
+
+.form-log a {
+    font-family: robot;
+    margin: 10px 60px;
+    color: #2D4059;
+}
+
+.reg {
+    display: flex;
+    font-family: robot;
+}
+
+.reg1{
+    background: #FFD460;
+    width: 30%;
+    float: left;
+    margin: 0px 10px 0px 50px;
+}
+
+.reg2{
+    background: #EA5455;
+    green;
+    width: 70%;
+    text-align: center;
+    margin: 0px 50px 0px 10px;
+}
+
+.ee {
+    font-family: robot;
+    background: #FFE8AD;
+    border: 0.5px solid;
+    margin: 0px 60px;
+}
+
+.profile_form {
+    font-family: robot;
+    text-align: center;
+}
+
+.flash{
+    margin: 20px 300px;
+    text-align: center;
+}
+
+.flash.well {
+    border: 1px solid #759A28;
+    background: #9ACD32;
+    font-family: robot;
+}
+
+.flash.bad {
+    border: 1px solid #951822;
+    background: #EA5455;
+    font-family: robot;
+}
+
+.profile_main{
+    font-family: robot;
+    height: 180px;
+
+}
+
+.profile_main.data{
+    width: 30%;
+    float: left;
+    display: grid;
+
+}
+
+.profile_main.active{
+    width: 70%;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

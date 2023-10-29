@@ -1,0 +1,25 @@
+{% extends 'baze.html' %}
+{% block title %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+<div class="profile_main">
+    <div class="profile_main data">
+        <form method="post" class="profile_form">
+            <p class="profile_form">Имя аккаунта: {{current_user.get_name()}}</p>
+            <p class="profile_form">Почта: {{current_user.get_email()}}</p>
+            {{ form.hidden_tag() }}
+            <p>{{ form.but_logout(class="form_button bad") }}</p>
+            <p>{{ form.but_active(class="form_button well") }}</p>
+        </form>
+    </div>
+    <div class="profile_main active">
+        <p>{{random_active}}</p>
+    </div>
+</div>
+
+{% endblock %}

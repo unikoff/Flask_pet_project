@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" href="{{ url_for('static', filename='styles.css')}}" rel="stylesheet">
+    {% block title %}
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Не определено</title>
+    {% endif %}
+    {% endblock title -%}
+</head>
+<body bgcolor=#FFEAA8>
+    {% block content -%}
+    {% block menu -%}
+    <ul class="top_menu">
+        {% if menu -%}
+        {% for i in menu -%}
+            <li><a href="{{i.url}}">{{i.name}}</a> </li>
+        {% endfor -%}
+        {% else -%}
+            <li><a href="/">Home</a> </li>
+            {% if current_user.is_authenticated %}
+                <li><a href="/profile">Profile</a> </li>
+                {% else %}
+                <li><a href="/login">Authorization</a> </li>
+            {% endif %}
+        {% endif %}
+    </ul>
+    {% endblock menu %}
+    {% endblock content %}
+</body>
+</html>

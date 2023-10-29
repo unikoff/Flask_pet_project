@@ -1,0 +1,26 @@
+{% extends 'baze.html' %}
+{% block title %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+<div class="reg">
+    <div class="reg1">
+        <form method="post" class="form-reg">
+            {{ form.hidden_tag() }}
+            <p>{{ form.username.label }} {{ form.username(class="form_window", placeholder="go yourself") }}</p>
+            <p>{{ form.email.label }} {{ form.email(class="form_window") }}</p>
+            <p>{{ form.password.label }} {{ form.password(class="form_window") }}</p>
+            <p>{{ form.password2.label }} {{ form.password2(class="form_window") }}</p>
+            <p>{{ form.submit(class="form_button well") }}</p>
+        </form>
+    </div>
+    <div class="reg2">
+        <h1>Do you want to go to Claude-Mone?</h1>
+        <p>Idi ***! You are not registered!</p>
+    </div>
+</div>
+{% endblock %}
