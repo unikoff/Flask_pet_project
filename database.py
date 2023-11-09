@@ -1,6 +1,7 @@
 from flask_login import UserMixin
 import requests
 import json
+from sqlalchemy import text
 
 
 def random_active():
@@ -58,6 +59,24 @@ class Db_plus(UserMixin):
 
     def get_psw(self):
         return str(self.__user.password)
+
+    def buy_sub(self):
+        try:
+            sql = text(f'INSERT INTO Purchase(id, money, base_sub) VALUES({self.get_id()}, 100, 1)')
+            result = self.db.session.execute(sql)
+            self.db.session.flush()
+            self.db.session.commit()
+        except:
+            return False
+        return True
+
+    def root(self):
+        sql = text('SELECT * from users '
+                   'INNER JOIN Purchase ON users.ID = Purchase.ID')
+        result = self.db.session.execute(sql)
+        for i in result:
+            print(i)
+        return result
 
 
 if __name__ == '__main__':

@@ -13,20 +13,26 @@ load_dotenv()
 app.config.from_prefixed_env()
 
 login_manager = LoginManager(app)
-dbb = SQLAlchemy(app)
+db_main = SQLAlchemy(app)
 
 
-class UserModel(dbb.Model):
+class UserModel(db_main.Model):
     __tablename__ = 'users'
     # we call our table in db / называем нашу таблицу в базе данных
 
-    id = dbb.Column(dbb.Integer, primary_key=True)
-    username = dbb.Column(dbb.String())
-    email = dbb.Column(dbb.String(), unique=True)
-    password = dbb.Column(dbb.String())
+    id = db_main.Column(db_main.Integer, primary_key=True)
+    username = db_main.Column(db_main.String())
+    email = db_main.Column(db_main.String(), unique=True)
+    password = db_main.Column(db_main.String())
 
 
-db = Db_plus(dbb, UserModel)
+class Purchase(db_main.Model):
+    id = db_main.Column(db_main.Integer, primary_key=True)
+    money = db_main.Column(db_main.Integer)
+    base_sub = db_main.Column(db_main.Integer)
+
+
+db = Db_plus(db_main, UserModel)
 
 
 @login_manager.user_loader
@@ -36,6 +42,7 @@ def load_user(user):
 
 @app.route("/")
 def index():
+    db.root()
     return render_template("main.html")
 
 
@@ -49,7 +56,10 @@ def profile():
             flash('Удачный выход', category='well')
             return redirect(url_for('login'))
         elif form.but_active.data:
-            random_active_htm = random_active()
+            # random_active_htm = random_active()
+            r = db.buy_sub()
+            print(r)
+            random_active_htm = '123'
             return render_template('profile.html', form=form, random_active=random_active_htm)
     return render_template('profile.html', form=form)
 
@@ -85,4 +95,6 @@ def registration():
 
 
 if __name__ == '__main__':
+    app.app_context().push()
+    db_main.create_all()
     app.run(debug=True)
