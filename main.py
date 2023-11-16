@@ -6,7 +6,7 @@ from flask_login import current_user
 from forms import*
 
 from flask_sqlalchemy import SQLAlchemy
-from database import Db_plus, random_active
+from database1 import Db_plus, random_active
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask("__name__")
 load_dotenv()
@@ -42,7 +42,6 @@ def load_user(user):
 
 @app.route("/")
 def index():
-    db.root()
     return render_template("main.html")
 
 
