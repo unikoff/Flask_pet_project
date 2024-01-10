@@ -13,14 +13,14 @@
             {{ form.hidden_tag() }}
             <p>{{ form.username.label }} {{ form.username(class="form_window", placeholder="go yourself") }}</p>
             <p>{{ form.email.label }} {{ form.email(class="form_window") }}</p>
-            <p>{{ form.password.label }} {{ form.password(class="form_window") }}</p>
-            <p>{{ form.password2.label }} {{ form.password2(class="form_window") }}</p>
+            <p>{{ form.password.label }} {{ form.password(class="form_window", type="password") }}</p>
+            <p>{{ form.password2.label }} {{ form.password2(class="form_window", type="password") }}</p>
             <p>{{ form.submit(class="form_button well") }}</p>
         </form>
     </div>
     <div class="reg2">
-        <h1>Do you want to go to Claude-Mone?</h1>
-        <p>Idi ***! You are not registered!</p>
+        <h1>Why?</h1>
+        <p>Enter the data and do not forget about the three digits on the back of the card!</p>
     </div>
 </div>
 {% endblock %}

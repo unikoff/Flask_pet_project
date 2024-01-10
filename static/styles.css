@@ -55,7 +55,7 @@ ul.top_menu li a {
 }
 
 .form_button.bad {
-    background: #E9B4B7;
+    background: #FF758D;
 }
 
 .form-reg{
@@ -134,6 +134,12 @@ ul.top_menu li a {
     font-family: robot;
 }
 
+.cooll_img {
+    display: flex;
+    align: center;
+    margin: auto;
+}
+
 .flash.bad {
     border: 1px solid #951822;
     background: #EA5455;
@@ -159,4 +165,11 @@ ul.top_menu li a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.home {
+    font-family: arial;
+    text-align: center;
+    margin: 5 0 20 0;
+    font-size: 1.5em;
 }

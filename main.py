@@ -6,7 +6,7 @@ from flask_login import current_user
 from forms import*
 
 from flask_sqlalchemy import SQLAlchemy
-from database1 import Db_plus, random_active
+from database import Db_plus, random_active
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask("__name__")
 load_dotenv()
@@ -52,13 +52,10 @@ def profile():
     if form.validate_on_submit():
         if form.but_logout.data:
             logout_user()
-            flash('Удачный выход', category='well')
+            flash('successful entry', category='well')
             return redirect(url_for('login'))
         elif form.but_active.data:
-            # random_active_htm = random_active()
-            r = db.buy_sub()
-            print(r)
-            random_active_htm = '123'
+            random_active_htm = random_active()
             return render_template('profile.html', form=form, random_active=random_active_htm)
     return render_template('profile.html', form=form)
 
@@ -70,10 +67,10 @@ def login():
         user = db.find_user(form.email.data)
         if not (user is None) and check_password_hash(user.get_psw(), form.password.data):
             login_user(user, remember=True)
-            flash('Удачный вход', category='well')
+            flash('successful entry', category='well')
             return redirect(url_for('profile'))
         else:
-            flash('Что-то неверно', category='bad')
+            flash('something is wrong', category='bad')
     return render_template('log_in.html', form=form)
 
 

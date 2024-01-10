@@ -6,6 +6,9 @@
 {{ super() }}
 {% for cat, msg in get_flashed_messages(True) %}
 <div class="flash {{cat}}">{{msg}}</div>
+{% if msg %}
+<img src="https://a.d-cd.net/oXth89uQGHFAmzRmBRczLrqQp84-960.jpg" class="cooll_img" width="400" height="200" />
+{% endif %}
 {% endfor %}
 <div class="profile_main">
     <div class="profile_main data">
